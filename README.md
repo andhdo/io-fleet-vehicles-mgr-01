@@ -114,12 +114,13 @@ cd ../../..
 ### **NOTE4**: backlog
 
 - [x] Project scaffold
-- [ ] Unittest
-- [ ] Postman tests
+- [x] Testing for repositories -> Unittest
+- [ ] Testing for resources -> Unittest
+- [ ] Testing external -> Postman collection
 - [x] Enable Cors
 - [x] Development baseline
 - [x] Swagger definition export
-- [ ] XML compatibility
+- [x] XML compatibility
 - [ ] Additional properties mgmt
 - [x] Containerize solution (naive)
 - [ ] Containerize solution (using gradle jlib)
