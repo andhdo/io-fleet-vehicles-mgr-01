@@ -1,0 +1,8 @@
+package io.fleet_vehicles_mgr.config.dbmigrations;
+
+import io.mongock.api.annotations.ChangeUnit;
+
+@ChangeUnit(id="001",order = "001")
+public class InitialSetupMigration {
+
+}

@@ -1,0 +1,37 @@
+# This configuration is intended for development purpose, it's **your** responsibility to harden it for production
+version: '3.8'
+services:
+  fleet-app:
+    image: fleet-app
+    # If you want to expose these ports only on your dev PC,
+    # add the "127.0.0.1:" prefix
+    ports:
+      - 8080:8080
+    # volumes:
+    #   - ./mongodb/db/:/data/db/
+
+    restart: always
+    environment:
+      #- SPRING_DATA_MONGODB_URI=mongodb://root:example@fleet-mongo:27017/fleet-db?authSource=admin
+      - SPRING_DATA_MONGODB_HOST=fleet-mongo
+      - SPRING_DATA_MONGODB_DATABASE=fleet-db
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SPRING_DATA_MONGODB_USERNAME=root
+      - SPRING_DATA_MONGODB_PASSWORD=example
+      - SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE=admin
+      - MONGO_HOST=fleet-mongo
+      - MONGO_PORT=27017
+      - MONGO_WAIT_TIMEOUT=30
+      - APP_SLEEP=30
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+    depends_on:
+      - fleet-mongo
+  fleet-mongo:
+    image: mongo:5.0.4
+    ports:
+      - 27017:27017
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: fleet-db

@@ -1,0 +1,28 @@
+this:
+  clientApp:
+    name: 'ioFleetVehiclesMgr'
+
+server:
+  port : 8080
+
+
+spring:
+  mongodb:
+    embedded:
+      version:
+  data:
+    mongodb:
+      host: localhost
+      database: fleet-db
+      port: 27017 #0
+      username: root
+      password: example
+      authentication-database: admin
+      # uri: mongodb://root:example@localhost:27017/fleet-db?authSource=admin
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+
+mongock:
+  change-logs-scan-package:
+    - io.fleet_vehicles_mgr.config.dbmigrations
