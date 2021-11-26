@@ -99,6 +99,7 @@ cd ../../..
 - lombok is used to hide accessors/modifiers stuff in entities
 - logback,slf4j: for logging purposes
 - jackson: for json format file parsing
+- springfox: for swagger management
 
 ### **NOTE3**: Directory Layout
 
@@ -109,7 +110,23 @@ cd ../../..
 | /service    | service tier                 |
 | /web/rest   | for external interaction     |
 
-### **NOTE4**: scaffold
+
+### **NOTE4**: backlog
+
+- [x] Project scaffold
+- [ ] Unittest
+- [ ] Postman tests
+- [x] Enable Cors
+- [x] Development baseline
+- [x] Swagger definition export
+- [ ] XML compatibility
+- [ ] Additional properties mgmt
+- [x] Containerize solution (naive)
+- [ ] Containerize solution (using gradle jlib)
+- [ ] Auth
+- [ ] Coverage
+
+### **NOTE5**: scaffold
 
 * [spring initializer](https://start.spring.io/) used to do the scaffold of the project, with the following 
 parameters:
@@ -131,5 +148,16 @@ dependencies:
 * then change the base dir & import to ide
 
 
-### **NOTE4** coverage report
+### **NOTE6** coverage report
 ![idea-coverage-report](./docs/idea_jacoco_coverage_report.png)
+
+### **NOTE7** references
+* [scaffold](https://www.youtube.com/watch?v=OtBukxJy4kg)
+* [reactive mono/flux](https://www.youtube.com/watch?v=3J_X1srMk3s)
+
+### **NOTE8** limitations
+* swagger-ui does not add `Content-Type` header to requests
+ > should be added manually on invocations, for instance:
+```
+curl -X GET "http://localhost:8080/vehicles" -H "Accept: application/json" -H "Content-Type: application/json"
+```

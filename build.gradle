@@ -35,6 +35,9 @@ dependencies {
 	implementation "io.springfox:springfox-boot-starter:${springfoxVersion}"
 	compileOnly "io.springfox:springfox-swagger-ui:${springfoxVersion}"
 
+	// xml serialization
+	implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-xml"
+
 	// mongo driver
 	// implementation "org.mongodb:mongo-java-driver:${}"
 

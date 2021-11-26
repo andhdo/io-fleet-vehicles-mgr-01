@@ -7,11 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech_.web.util.HeaderUtil;
 import tech_.web.util.ResponseUtil;
 
+import javax.print.attribute.standard.Media;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +22,12 @@ import java.util.Optional;
  * REST controller for managing {@link Vehicle}.
  */
 @RestController
-@RequestMapping("/api")
+@CrossOrigin(origins = "*") // or a filter, or security-config (https://spring.io/blog/2015/06/08/cors-support-in-spring-framework)
+@RequestMapping(
+    name = "/api",
+    consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+    produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}
+)
 //@Transactional
 public class VehicleResource {
 
@@ -84,7 +91,7 @@ public class VehicleResource {
     /**
      * {@code GET  /vehicle/:id} : get the "id" vehicle.
     */
-    @GetMapping("/vehicles/{id}")
+    @GetMapping(value="/vehicles/{id}")
     public ResponseEntity<Vehicle> getVehicle(@PathVariable String id) {
         log.debug("REST request to get Vehicle : {}", id);
         Optional<Vehicle> vehicle = vehicleRepository.findById(id);
