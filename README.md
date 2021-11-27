@@ -114,9 +114,10 @@ cd ../../..
 ### **NOTE4**: backlog
 
 - [x] Project scaffold
-- [x] Testing for repositories -> Unittest
-- [ ] Testing for resources -> Unittest
-- [ ] Testing external -> Postman collection
+- [x] Testing for repositories -> junit Unittest (tdd focus)
+- [x] Testing for resources -> junit IntegrationTests (tdd focus)
+- [x] Testing external -> Postman collection
+- [ ] Testing bdd focused
 - [x] Enable Cors
 - [x] Development baseline
 - [x] Swagger definition export
@@ -125,7 +126,7 @@ cd ../../..
 - [x] Containerize solution (naive)
 - [ ] Containerize solution (using gradle jlib)
 - [ ] Auth
-- [ ] Coverage
+- [x] Coverage
 
 ### **NOTE5**: scaffold
 
@@ -154,6 +155,7 @@ dependencies:
 
 ### **NOTE7** references
 * [scaffold](https://www.youtube.com/watch?v=OtBukxJy4kg)
+
 * [reactive mono/flux](https://www.youtube.com/watch?v=3J_X1srMk3s)
 * [mockito tests](https://www.youtube.com/watch?v=N8fQC89IhZA)
 * [rest assured tests](https://www.youtube.com/watch?v=zEkI8xi3Mjs)
