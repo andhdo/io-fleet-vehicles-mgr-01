@@ -21,9 +21,12 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.security:spring-security-test'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 	//testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo' // for integration tests
 
 	// logging libraries
@@ -37,6 +40,10 @@ dependencies {
 
 	// xml serialization
 	implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-xml"
+
+	// assertion helpers
+	testImplementation 'org.assertj:assertj-core:3.21.0'
+	testImplementation 'org.hamcrest:hamcrest:2.2'
 
 	// mongo driver
 	// implementation "org.mongodb:mongo-java-driver:${}"

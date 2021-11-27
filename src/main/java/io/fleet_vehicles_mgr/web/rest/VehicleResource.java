@@ -44,9 +44,6 @@ public class VehicleResource {
         this.vehicleRepository = vehicleRepository;
     }
 
-    /**
-     * {@code POST  /vehicles} : Create a new vehicle.
-     */
     @PostMapping("/vehicles")
     public ResponseEntity<Vehicle> createVehicle(@RequestBody Vehicle vehicle) throws URISyntaxException {
         log.debug("REST request to save Vehicle : {}", vehicle);
@@ -57,9 +54,14 @@ public class VehicleResource {
         return new ResponseEntity<>(vehicleCreated, HttpStatus.CREATED);
     }
 
-    /**
-     * {@code PUT  /vehicles/:id} : Updates an existing vehicle.
-     */
+    @GetMapping("/vehicles/{id}")
+    public ResponseEntity<Vehicle> getVehicle(@PathVariable String id) {
+        log.debug("REST request to get Vehicle : {}", id);
+        Optional<Vehicle> vehicle = vehicleRepository.findById(id);
+        return ResponseUtil.wrapOrNotFound(vehicle);
+    }
+
+
     @PutMapping("/vehicles/{id}")
     public ResponseEntity<Vehicle> updateVehicle(
             @PathVariable(value = "id", required = false) final String id,
@@ -79,25 +81,16 @@ public class VehicleResource {
                 .body(result);
     }
 
-    /**
-     * {@code GET  /vehicles} : get all the people.
-     */
     @GetMapping("/vehicles")
     public List<Vehicle> getAllVehicles() {
         log.debug("REST request to get all Vehicles");
         return vehicleRepository.findAll();
     }
 
-    /**
-     * {@code GET  /vehicle/:id} : get the "id" vehicle.
-    */
-    @GetMapping(value="/vehicles/{id}")
-    public ResponseEntity<Vehicle> getVehicle(@PathVariable String id) {
-        log.debug("REST request to get Vehicle : {}", id);
-        Optional<Vehicle> vehicle = vehicleRepository.findById(id);
-        return ResponseUtil.wrapOrNotFound(vehicle);
-    }
 
+    /**
+     * {@code DELETE  /vehicles} : remove specific vehicle.
+     */
     @DeleteMapping("/vehicles/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
         log.info("Delete user " + id);

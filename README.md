@@ -22,7 +22,7 @@ Below (prerrequisites) are the instructions on how to build and run the project;
 * openjdk-17 (java target vm, and configuration of system and path)
 * gradle (build system)
 * docker (containerized image)
-* docker-compose (containerized image set)
+* docker-compose (containerized image set): tool for defining and running multi-container Docker applications
 * mongo compass (db manager) optional, (& to connect to mongo)
 * idea optional, for dev purposes (ide: [idea toolbox](https://www.jetbrains.com/toolbox-app/)
   & intelli-j idea community)
@@ -155,6 +155,8 @@ dependencies:
 ### **NOTE7** references
 * [scaffold](https://www.youtube.com/watch?v=OtBukxJy4kg)
 * [reactive mono/flux](https://www.youtube.com/watch?v=3J_X1srMk3s)
+* [mockito tests](https://www.youtube.com/watch?v=N8fQC89IhZA)
+* [rest assured tests](https://www.youtube.com/watch?v=zEkI8xi3Mjs)
 
 ### **NOTE8** limitations
 * swagger-ui does not add `Content-Type` header to requests

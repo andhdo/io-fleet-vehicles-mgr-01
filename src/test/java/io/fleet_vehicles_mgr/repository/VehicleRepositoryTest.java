@@ -23,31 +23,18 @@ public class VehicleRepositoryTest {
         repository.deleteAll();
     }
 
-    private String vehicleMockName() {
-        return "cx-30";
-    }
-
-    private Vehicle createMock() {
-        var vehicle = new Vehicle(null,vehicleMockName(),"KLMD2234","JLS584","RED",5,4);
-        return vehicle;
-    }
-    private Vehicle modifiedMock() {
-        var vehicle = new Vehicle(null,vehicleMockName(),"ABC25543","MCV005","BLUE",6,8);
-        return vehicle;
-    }
-
     @Test
     void t01_CreateVehicle() {
-        var vehicle = createMock();
+        var vehicle = MockData.createMock();
         var persistentVehicle = repository.save(vehicle);
         assertNotNull(persistentVehicle);
     }
     @Test
     void t02_FindVehicle() {
-        var vehicle = createMock();
+        var vehicle = MockData.createMock();
         var persistentVehicle = repository.save(vehicle);
 
-        var vehicles = repository.findByName(vehicleMockName());
+        var vehicles = repository.findByName(MockData.vehicleMockName());
         assertNotNull(vehicles);
         assertEquals(1, vehicles.size());
     }
@@ -56,10 +43,10 @@ public class VehicleRepositoryTest {
     void t03_UpdateVehicle() {
 
         // create vehicle
-        var vehicle = createMock();
+        var vehicle = MockData.createMock();
         var persistentVehicle_t0 = repository.save(vehicle);
         // update it
-        var modifiedVehicle = modifiedMock();
+        var modifiedVehicle = MockData.modifiedMock();
 
         // not included in coverage-report because fo instrospection usage
         // BeanUtils.copyProperties(modifiedVehicle,persistentVehicle_t0,"id");
@@ -73,7 +60,7 @@ public class VehicleRepositoryTest {
         var persistentVehicle_t1 = repository.save(persistentVehicle_t0);
 
         // retrieve it
-        var vehicleName = vehicleMockName();
+        var vehicleName = MockData.vehicleMockName();
         var vehicles = repository.findByName(vehicleName);
 
         assertNotNull(vehicle);
@@ -88,7 +75,7 @@ public class VehicleRepositoryTest {
 
     @Test
     void t04_FindAllVehicles() {
-        var vehicle = createMock();
+        var vehicle = MockData.createMock();
         var persistentVehicle = repository.save(vehicle);
 
         var vehicleList = repository.findAll();
