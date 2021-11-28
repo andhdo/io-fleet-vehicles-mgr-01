@@ -13,6 +13,21 @@ The component handles the following set of (crud) operations:
 Source code follows an approximation of the Onion Architecture ideas, 
 but with a reduced layout of directories according simplicity of the exercise.
 ![hld-app-drawio](./docs/01_HLD_App.drawio.png)
+* <sub>made with [draw.io](https://draw.io )</sub>
+
+Domain model entities identified are presented below
+![_io-fleet.jdl](./docs/_io-fleet.jdl.png)
+* <sub>made with [jdl-studio](https://start.jhipster.tech/jdl-studio/ )</sub>
+
+Identified interactions are:
+- mongo for persistence
+- app for commandline instantiation
+- rest endpoints to expose target services
+
+Source code is made using spring-boot framework
+
+
+The source code repository is located at: [github](https://github.com/andhdo/io-fleet-vehicles-mgr-01.git)
 
 ## Instructions
 Below (prerrequisites) are the instructions on how to build and run the project;
@@ -61,10 +76,14 @@ cd ../../..
 
 ### Run (Using Test mode)
 
-to run the unit test:
-gradle test --tests io.web.rest.HelloControllerTest
-gradle test --tests io.web.rest.VehicleResourceIT
-
+* to run the configured tests:
+```
+gradle test
+```
+* to run a specific test: 
+```
+gradle test --tests io.fleet_vehicles_mgr.web.rest.VehicleResourceTest
+```
 
 ### Stop (Database)
 ```
@@ -96,10 +115,12 @@ cd ../../..
 
 
 ### **NOTE2**: Frameworks/Libraries used
-- lombok is used to hide accessors/modifiers stuff in entities
+- spring boot: base framework that supports DI, IoC principles. 
+- lombok: is used to hide accessors/modifiers stuff in entities
 - logback,slf4j: for logging purposes
 - jackson: for json format file parsing
 - springfox: for swagger management
+- assertj: testing utilities
 
 ### **NOTE3**: Directory Layout
 
@@ -127,25 +148,29 @@ cd ../../..
 - [ ] Containerize solution (using gradle jlib)
 - [ ] Auth
 - [x] Coverage
+- [ ] Validations
 
 ### **NOTE5**: scaffold
 
-* [spring initializer](https://start.spring.io/) used to do the scaffold of the project, with the following 
+* use [spring initializer](https://start.spring.io/) to generate the baseline for project, with the following 
 parameters:
-- group: io
-- artifact: fleet_vehicles_mgr
-- target-jdk: j17
-dependencies: 
-- spring web ()
-- spring data mongodb (data access)
-- embedded mongo (for testing)
-- lombok (for getter setter stuff because target is java)
+  - building: gradle
+  - language: java 
+  - spring-boot: 2.6.0
+  - group: io
+  - artifact: fleet_vehicles_mgr
+  - packaging: jar
+  - target-jdk: j17
+  - dependencies: 
+    - spring web ()
+    - spring data mongodb (data access)
+    - embedded mongo (for testing)
+    - lombok
 
 * additional dependencies:
-
-2 dependencias
-- springfox
--@EnableSwagger2
+  - springfox 
+  - logkit & slf4j
+  - assertj
 
 * then change the base dir & import to ide
 
@@ -159,6 +184,7 @@ dependencies:
 * [reactive mono/flux](https://www.youtube.com/watch?v=3J_X1srMk3s)
 * [mockito tests](https://www.youtube.com/watch?v=N8fQC89IhZA)
 * [rest assured tests](https://www.youtube.com/watch?v=zEkI8xi3Mjs)
+* [rest-validation](https://mkyong.com/spring-boot/spring-rest-validation-example/)
 
 ### **NOTE8** limitations
 * swagger-ui does not add `Content-Type` header to requests

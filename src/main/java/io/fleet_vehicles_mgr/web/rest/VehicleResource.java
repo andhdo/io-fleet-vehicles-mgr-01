@@ -14,6 +14,7 @@ import tech_.web.util.HeaderUtil;
 import tech_.web.util.ResponseUtil;
 
 import javax.print.attribute.standard.Media;
+import javax.validation.Valid;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
@@ -45,7 +46,7 @@ public class VehicleResource {
     }
 
     @PostMapping("/vehicles")
-    public ResponseEntity<Vehicle> createVehicle(@RequestBody Vehicle vehicle) throws URISyntaxException {
+    public ResponseEntity<Vehicle> createVehicle(@Valid @RequestBody Vehicle vehicle) throws URISyntaxException {
         log.debug("REST request to save Vehicle : {}", vehicle);
         if (vehicle.getId() != null) {
             throw new BadRequestAlertException("A new vehicle cannot already have an ID", ENTITY_NAME, "idexists");

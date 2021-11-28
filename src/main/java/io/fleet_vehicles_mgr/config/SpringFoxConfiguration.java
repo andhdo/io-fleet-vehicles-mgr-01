@@ -8,7 +8,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-public class Swagger2Configuration {
+public class SpringFoxConfiguration {
 
     @Bean
     public Docket api() {

@@ -1,7 +1,7 @@
 FROM gradle:7.3.0-jdk17-alpine AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle build --no-daemon
+RUN gradle build --no-daemon -x test
 # use the next line(s) to debug the layout inside the build step of assemble process
 RUN ls -Fahl
 RUN ls build/libs -Fahl
