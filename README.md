@@ -77,6 +77,7 @@ cd ../../..
 ### Run (Using Test mode)
 
 * to run the configured tests:
+<sub>(bear in mind to turn on the dockerized mongo database)</sub>
 ```
 gradle test
 ```
@@ -148,7 +149,10 @@ cd ../../..
 - [ ] Containerize solution (using gradle jlib)
 - [ ] Auth
 - [x] Coverage
-- [ ] Validations
+- [x] Validations
+- [ ] Pagination
+- [ ] Odata
+
 
 ### **NOTE5**: scaffold
 
@@ -185,7 +189,11 @@ parameters:
 * [mockito tests](https://www.youtube.com/watch?v=N8fQC89IhZA)
 * [rest assured tests](https://www.youtube.com/watch?v=zEkI8xi3Mjs)
 * [rest-validation](https://mkyong.com/spring-boot/spring-rest-validation-example/)
-
+* [rest-sec / jwt (inhouse impl 1)](https://www.infoworld.com/article/3630107/how-to-secure-rest-with-spring-security.html)
+* [rest-sec / jwt (inhouse impl 2)](https://medium.com/zero-equals-false/protect-rest-apis-with-spring-security-and-jwt-5fbc90305cc5)
+* [rest-sec / basic-auth](https://mkyong.com/spring-boot/spring-rest-spring-security-example/https://mkyong.com/spring-boot/spring-rest-spring-security-example/)
+* [rest-sec / oauth-keycloack](https://www.baeldung.com/spring-security-oauth-resource-server)
+* [rest-sec / jwt (inmem)](https://www.javainuse.com/spring/boot-jwt)
 ### **NOTE8** limitations
 * swagger-ui does not add `Content-Type` header to requests
  > should be added manually on invocations, for instance:

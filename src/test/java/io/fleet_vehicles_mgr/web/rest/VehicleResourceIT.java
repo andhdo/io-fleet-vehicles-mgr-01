@@ -1,6 +1,7 @@
 package io.fleet_vehicles_mgr.web.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.fleet_vehicles_mgr.IntegrationTest;
 import io.fleet_vehicles_mgr.repository.MockData;
 import io.fleet_vehicles_mgr.repository.VehicleRepository;
 import org.hamcrest.core.Is;
@@ -30,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Similar to unittest but excluding influence of mock objects
  */
 @ExtendWith(SpringExtension.class)
-@SpringBootTest
+@IntegrationTest
 @AutoConfigureMockMvc
 public class VehicleResourceIT {
 

@@ -3,6 +3,7 @@ package io.fleet_vehicles_mgr.domain;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -21,6 +22,7 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @ApiModel(description = "The Fleet domain entities.")
 @Document(collection = "vehicles")
+@EqualsAndHashCode
 public class Vehicle {
 
     @MongoId(FieldType.OBJECT_ID)

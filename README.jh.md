@@ -11,14 +11,15 @@ sudo npm i -g rimraf
 
 ```
 cd ~/.apps/e_io.Apps
-mkdir io-fleet-vehicles-mgr-jh1 && cd io-fleet-vehicles-mgr-jh1
+export PROJECT_NAME=io-fleet-vehicles-mgr-jh1
+mkdir $PROJECT_NAME && cd $PROJECT_NAME
 ```
 * execute the generator
 ```
 jhipster
 
 	type: monolithic
-	basename: fleet
+	basename: fleet_vehicles_mgr
 	default package io.fleet_vehicles_mgr
 	auth: jwt-auth
 	database: mongo
@@ -31,7 +32,7 @@ jhipster
 	theme: default jhipster (booswatch)
 	i18n: yes
 	native lang: english
-	additional: german
+	additional: spanish
 	unittest additional to junit & jest: no
 	other generators: no
 ```
